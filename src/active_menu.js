@@ -1,14 +1,5 @@
 "use strict";
 
-// 클릭시 active 메뉴 적용
-// Navbar Item active
-const navbarItems = document.querySelector(".header__menu");
-navbarItems.addEventListener("click", e => {
-  const active = document.querySelector(".active");
-  active.classList.remove("active");
-  e.target.classList.add("active");
-});
-
 // scroll시 자동으로 메뉴 아이템 선택
 // 1. 모든 섹션 요소들과 메뉴 아이템들을 가지고 온다.
 // 2. IntersectionObserver를 사용해서 모든 섹션들을 관찰해야 한다.
@@ -28,13 +19,18 @@ const sectionIds = [
 ];
 
 const sections = sectionIds.map(id => document.querySelector(id));
+
 const navItems = sectionIds.map(id => document.querySelector(`[href="${id}"]`));
 
 const visibleSections = sectionIds.map(() => false);
+let activeNavItem = navItems[0];
 
-const options = {};
+const options = {
+  rootMargin: "-20% 0px 0px 0px",
+  threshold: [0, 0.98],
+};
+
 const observer = new IntersectionObserver(observerCallback, options);
-
 sections.forEach(section => observer.observe(section));
 
 function observerCallback(entries) {
@@ -48,7 +44,7 @@ function observerCallback(entries) {
     selectLastOne =
       index === sectionIds.length - 1 &&
       entry.isIntersecting &&
-      entry.intersectionRatio >= 0.99;
+      entry.intersectionRatio >= 0.95;
   });
 
   console.log(visibleSections);
@@ -56,12 +52,24 @@ function observerCallback(entries) {
 
   const navIndex = selectLastOne
     ? sectionIds.length - 1
-    : findFirstIntersection(visibleSections);
+    : findFirstIntersecting(visibleSections);
 
   console.log(sectionIds[navIndex]);
+
+  selectNavItem(navIndex);
 }
 
-function findFirstIntersection(visibleSections) {
-  const index = visibleSections.indexOf(true);
+function findFirstIntersecting(intersections) {
+  const index = intersections.indexOf(true);
   return index >= 0 ? index : 0;
+}
+
+function selectNavItem(index) {
+  const navItem = navItems[index];
+
+  if (!navItem) return;
+
+  activeNavItem.classList.remove("active");
+  activeNavItem = navItem;
+  activeNavItem.classList.add("active");
 }
