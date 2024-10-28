@@ -40,12 +40,16 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- TypeIt -->
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
     <!-- css & JS files  
     defer: parsed web page first and run src JS file)-->
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="src/main.js" defer></script>
     <script type="module" src="src/projects.js" defer></script>
     <script type="module" src="src/active_menu.js" defer></script>
+    <script type="module" src="src/type.js" defer></script>
   </head>
 
   <body>
@@ -90,15 +94,17 @@
             alt="Jimee's profile"
             class="home__img"
           />
-          <h2 class="home__title">
-            Hello <br />
-            I'm <strong class="home__title--strong">Web Developer</strong>,
-            Jimee
-          </h2>
-          <p class="home__description">
-            A software engineer currently residing in Sydney, Australia
-          </p>
-          <a class="home__contact__btn" href="#contact">Contact Me</a>
+          <div>
+            <h2 class="home__title" aria-label="Hello, I'm Web Developer Jimee">
+              Hello <br />
+              I'm <strong class="home__title--strong">Web Developer</strong>,
+              Jimee
+            </h2>
+            <p class="home__description">
+              A software engineer currently residing in Sydney, Australia
+            </p>
+            <a class="home__contact__btn" href="#contact">Contact Me</a>
+          </div>
         </div>
       </section>
 
@@ -106,10 +112,14 @@
       <section id="about" class="section max-container">
         <h2 class="title">About me</h2>
         <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-          corporis iure, placeat quibusdam nulla, tempore exercitationem
-          deleniti est delectus modi, earum sint. Quas laudantium nulla ullam
-          necessitatibus maxime, officia placeat.
+          As the CIO at Entivel Pty Ltd, I leverage expertise in web app
+          development, IT strategy, and digital transformation to create
+          impactful, scalable solutions. With a focus on aligning technology
+          with business goals, I lead projects that enhance user experiences and
+          operational efficiency, including integrating AI to boost application
+          functionality. My experience includes leading an e-commerce project,
+          where I strengthened my leadership and soft skills to drive strategic
+          outcomes through technology.
         </p>
 
         <ul class="majors">
@@ -131,6 +141,20 @@
         </ul>
 
         <ul class="jobs">
+          <li class="job">
+            <img
+              src="images/jobs/Entervel.png"
+              alt="CQuniversity logo"
+              class="job__logo"
+            />
+            <div>
+              <p class="job__name">
+                Entervel &ndash; CIO (Chief Information Officer)
+              </p>
+              <p class="job__period">2024 Oct &ndash; Now</p>
+            </div>
+          </li>
+
           <li class="job">
             <img
               src="images/jobs/CQuni-logo-removebg.png"
@@ -168,10 +192,15 @@
           <h2 class="title">My Skills</h2>
           <p class="description">Skills & Attributes</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-            consequatur soluta, voluptates corporis reiciendis rem totam earum
-            quia deleniti quam repudiandae laborum ducimus quas temporibus rerum
-            dolore sit adipisci ex?
+            I bring a solid foundation in web development with a focus on both
+            coding and design tools. Proficient in HTML and CSS, I create
+            well-structured, visually appealing web layouts. My experience in
+            JavaScript and React allows me to develop dynamic and interactive
+            user interfaces, while a working knowledge of NodeJS enables
+            back-end integrations. Skilled in tools like Visual Studio Code,
+            Figma, Notion, and GitHub, I am equipped to streamline project
+            workflows, collaborate efficiently, and maintain effective version
+            control across projects.
           </p>
 
           <div class="skills">
@@ -481,7 +510,7 @@
           </li>
           <li>
             <a
-              href="https://github.com/jimeekang"
+              href="https://www.linkedin.com/in/jimee-kang-21b57824a/"
               title="my linkedin link"
               target="_blank"
               class="contact__link"
